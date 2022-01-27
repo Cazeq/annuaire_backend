@@ -1,4 +1,5 @@
 const { authJwt } = require("../middleware");
+const { verifySignUp } = require("../middleware");
 const controller = require("../controllers/user.controller");
 
 module.exports = function(app) {
@@ -22,5 +23,28 @@ module.exports = function(app) {
     "/api/test/admin",
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
+  );
+
+  app.get(
+    "/api/user/findAllUsers",
+    controller.findAllUsers
+  );
+
+  app.post(
+    "/api/user/findUserById",
+    controller.findUserById
+  );
+
+  app.post(
+    "/api/user/delete",
+    controller.DeleteUserById
+  );
+
+  app.post(
+    "/api/user/UpdateUserById",
+    [
+      verifySignUp.checkDuplicateEmail,
+    ],
+    controller.UpdateUserById
   );
 };

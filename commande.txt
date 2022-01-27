@@ -1,2 +1,15 @@
 LINK TUTO : 
 https://www.bezkoder.com/node-js-jwt-authentication-mysql/
+
+
+cd POLYTECH/INFO\ 5A/SECURITE\ DES\ SI/NOUVEAU/mySQL_Backend/
+
+
+
+ROUTES -- 
+
+findAllUsers() :
+http://localhost:8080/api/user/findAllUsers
+
+inscription():
+http://localhost:8080/api/auth/signup
